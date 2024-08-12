@@ -1,4 +1,3 @@
-import Background from "@/components/Background";
 import PixelArtMaker from "@/components/PixelArtMaker";
 import { Card } from "@/components/ui/card";
 
