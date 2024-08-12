@@ -12,7 +12,7 @@ export default function Home() {
           You can change the grid size, color size and make something amazing.
         </p>
       </div>
-      <Card className="flex w-[40rem] h-[40rem] items-center justify-center">
+      <Card className="flex w-[40rem] h-[41rem] items-center justify-center">
         <PixelArtMaker />
       </Card>
     </main>
