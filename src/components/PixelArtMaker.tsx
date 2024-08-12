@@ -13,7 +13,7 @@ const DEFAULT_SELECTED_COLOR = "#000";
 export default function PixelArtMaker() {
   const [gridSize, setGridSize] = useState<number>(DEFAULT_GRID_SIZE);
   const [grid, setGrid] = useState<string[]>(
-    Array(gridSize * gridSize).fill(DEFAULT_GRID_COLOR)
+    Array(DEFAULT_GRID_SIZE * DEFAULT_GRID_SIZE).fill(DEFAULT_GRID_COLOR)
   );
 
   const [selectedColor, setSelectedColor] = useState<string>(
@@ -44,6 +44,13 @@ export default function PixelArtMaker() {
       link.click();
       document.body.removeChild(link);
     }
+  };
+
+  const handleResetCanvas = () => {
+    setGridSize(DEFAULT_GRID_SIZE);
+    setGrid(
+      Array(DEFAULT_GRID_SIZE * DEFAULT_GRID_SIZE).fill(DEFAULT_GRID_COLOR)
+    );
   };
 
   return (
@@ -77,7 +84,17 @@ export default function PixelArtMaker() {
           ></div>
         ))}
       </div>
-      <Button onClick={handleSaveAsImage}>Save as Image</Button>
+      <div className="flex gap-3">
+        <Button onClick={handleSaveAsImage}>Save as Image</Button>
+        <Button
+          onClick={() => {
+            handleResetCanvas();
+          }}
+          variant={"outline"}
+        >
+          Reset Canvas
+        </Button>
+      </div>
     </div>
   );
 }
